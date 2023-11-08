@@ -1,0 +1,439 @@
+/* 헤더 스타일링 */
+header {
+    background-color: whitesmoke;
+    color: black;
+    padding: 15px 0;
+    text-align: center;
+}
+
+#logo img {
+    max-height: 300px;
+    margin-right: 10px;
+}
+
+#login {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+}
+
+#login a {
+    text-decoration: none;
+    color: black;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* 가로 메뉴 스타일링 */
+#top_menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* 가로로 가운데 정렬 */
+    background-color: black;
+    padding: 10px 0;
+}
+
+#top_menu ul li {
+    margin: 0 20px;
+    text-align: center; /* 메뉴 항목 가운데 정렬 */
+}
+
+#top_menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    
+}
+
+#top_menu ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 본문 스타일링 */
+main {
+    padding: 20px;
+}
+
+
+/* 슬라이드 이미지 스타일링 */
+.carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* 화면 폭이 768px 미만인 경우 */
+@media (max-width: 768px) {
+    .carousel-item img {
+        width: 80%;
+        height: auto;
+    }
+}
+
+/* 화면 폭이 576px 미만인 경우 */
+@media (max-width: 576px) {
+    .carousel-item img {
+        width: 60%;
+        height: auto;
+    }
+}
+
+
+/* 로그인 팝업 스타일 */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#login-page {
+    background: #fff;
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#login-page h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#login-form {
+    text-align: center;
+}
+
+#login-form input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#login-button {
+    background: #0074E4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#login-button:hover {
+    background: #0056A3;
+}
+
+#signup-link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #0074E4;
+}
+
+#close-popup {
+    background: #ccc;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#close-popup:hover {
+    background: #999;
+}
+
+/* 회원가입 팝업 스타일 */
+#signup-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+#signup-container {
+    background: #fff;
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#signup-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#signup-form {
+    text-align: center;
+}
+
+#signup-form input {
+    width:90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#signup-button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+#close-signup-popup {
+    float: right;
+    cursor: pointer;
+}
+
+#confirm-password{
+    max-width: 400px;
+}
+
+#new-username{
+    max-width: 400px;
+}
+
+#new-password{
+    max-width: 400px;
+}
+
+/* CSS 코드 (styles.css) */
+/* 헤더 */
+/* 원본 스타일은 데스크탑 화면을 가정합니다. */
+/* 모바일 화면에 대한 스타일을 정의합니다. */
+@media screen and (max-width: 768px) {
+    /* 화면 너비가 768px 이하일 때 적용됩니다. */
+    
+    /* 네비게이션 메뉴를 세로로 배치합니다. */
+    #top_menu ul {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* 네비게이션 메뉴 아이템을 가운데 정렬합니다. */
+    #top_menu ul li {
+        text-align: center;
+    }
+    
+    /* 시설 검색 링크를 가운데 정렬합니다. */
+    #facility-search-link {
+        display: block;
+        text-align: center;
+    }  
+}
+
+.search_filed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; /* 위 여백 조정 가능 */
+}
+
+.search_filed select,
+.search_filed input,
+.search_filed button {
+    margin: 5px;
+}
+
+.search_filed button {
+    background-color: gray;
+    border: none; /* 테두리 없애기 */
+    color: blanchedalmond;
+}
+
+.search_filed button:last-child {
+    background-color: #999;
+    border: none; /* 테두리 없애기 */
+}
+
+/* 공지사항 제목 */
+table a{
+    color: black;
+    text-decoration: none;
+}
+
+table a:hover{
+    color: black;
+    text-decoration: underline;
+}
+
+/* 공지사항 목차 */
+#number {
+    text-align: center; /* 텍스트 중앙 정렬 */
+    margin-top: 20px; /* 위쪽 여백 추가 */
+}
+
+#number a {
+    display: inline-block; /* 인라인 블록 요소로 만들어 가로로 정렬 */
+    text-decoration: none;
+    background-color: #f2f2f2; /* 배경 색상 설정 */
+    color: #333; /* 텍스트 색상 설정 */
+    padding: 10px 15px; /* 내부 여백 설정 */
+    margin: 5px; /* 각 링크 요소 사이의 간격 설정 */
+    border-radius: 5px; /* 둥근 테두리 설정 */
+    transition: background-color 0.2s; /* 호버 시 배경색 변경 트랜지션 */
+}
+
+#number a:hover {
+    background-color: #333; /* 호버 시 배경색 변경 */
+    color: #fff; /* 호버 시 텍스트 색상 변경 */
+}
+
+
+/* 시설검색/예약 스타일링 */
+
+/* 메인 부분의 스타일 */
+main {
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    color: #333;
+}
+
+form {
+    margin-top: 20px;
+}
+
+#sports {
+    padding: 10px;
+    width: 30%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#btn_load, #btn_remove {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#btn_remove {
+    background-color: gray;
+}
+
+#demoJSON {
+    margin-top: 20px;
+}
+
+/* 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    
+    background-color: #333;
+    color: #fff;   
+}
+
+/* 푸터 스타일링 */
+footer {
+    text-align: center;
+    padding: 0 0;
+    background-color: #333;
+    color: #fff;
+}
+
+#bottom_menu ul{
+    list-style: none;
+    display: flex;
+    justify-content: left;
+    padding: 10px 0;
+}
+
+#bottom_menu ul li{
+    margin: 0 20px;
+}
+
+#bottom_menu ul li a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15;
+}
+
+footer #bot{
+    text-align: left;
+    margin-bottom: 5px;
+    padding-left: 5px;
+}
+
+/* sisul 검색부분 스타일링 */
+.search-form {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #005D82;
+}
+
+
+
+
+

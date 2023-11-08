@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=myMap"></script>
+
+    
+    <title>시설위치 | 서울특별시 공공 체육시설</title>
+</head>
+<body style="background-color: white;">
+    <div id="wrap">
+        <header>
+            <div id="login">
+                <a href="#" id="login-link">로그인</a>
+                <a href="index.html"><img src="img/free-icon-home-page-4225539.png" alt="home"></a>
+            </div>
+            <div class="clear"></div>
+
+            <div id="logo">
+                <a href="index.html"><img src="img/서울.jpg" alt="seoul" width="265" height="200"></a>
+            </div>
+
+            <h1>서울특별시 생활체육시설 공공서비스</h1>
+
+            <nav id="top_menu">
+                <ul>
+                    <li><a href="https://yeyak.seoul.go.kr/web/search/selectPageListDetailSearchImg.do?code=T000&dCode=T014">교육/강좌</a></li>
+                    <li><a href="sisul.html">시설검색/예약</a></li>
+                    <li><a href="jido.html" style="color: limegreen;">시설위치</a></li>
+                    <li><a href="sahang.html">공지사항</a></li>
+                    <li><a href="jau.html">자유게시판</a></li>
+                </ul>
+            </nav>
+            <div class="clear"></div>
+
+            
+        </header>
+        <main>
+            <!--로그인-->
+            <div id="login-popup" class="popup">
+                <div id="login-page">
+                    <h2>로그인 화면</h2>
+                    <form id="login-form">
+                        <input type="text" id="username" placeholder="사용자명">
+                        <input type="password" id="password" placeholder="비밀번호">
+                        <button type="button" id="login-button">로그인</button>
+                    </form>
+                    <a href="#" id="signup-link">회원가입</a>
+                    <button type="button" id="close-popup">닫기</button>
+                </div>
+            </div>
+
+            <!--회원가입-->
+            <div id="signup-popup" class="popup">
+                <div id="signup-page">
+                    <h2>회원가입</h2>
+                    <form id="signup-form">
+                        <input type="text" id="new-username" placeholder="새 사용자명">
+                        <input type="password" id="new-password" placeholder="새 비밀번호">
+                        <input type="password" id="confirm-password" placeholder="비밀번호 확인"><br>
+                        <button type="button" id="signup-button">가입하기</button>
+                    </form>
+                    <button type="button" id="close-signup-popup">닫기</button>
+                </div>
+            </div>
+
+            <h3 >시설 위치</h3>
+
+            <div id="googleMap" style="width:100%;height:400px;"></div>
+
+            <script>
+                function myMap() {
+                let lat = 37.551310; // 위도 값
+                let lng = 127.036245; // 경도 값
+
+                // 지도 중심 설정
+                const mapProp = {
+                    center: new google.maps.LatLng(lat, lng),
+                    zoom: 11,
+                };
+                const map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+                // 마커 정보 배열
+                const markers = [
+                    {
+                        name: "응봉공원 테니스장",
+                        lat: lat,
+                        lng: lng,
+                    },
+                    {
+                        name: "난지천 풋살장",
+                        lat: 37.577201,
+                        lng: 126.883556,
+                    },
+                    {
+                        name: "목동운동장",
+                        lat: 37.530796,
+                        lng: 126.883137,
+                    },
+                    {
+                        name: "잠실종합운동장",
+                        lat: 37.515506,
+                        lng: 127.072775,
+                    },
+                    {
+                        name: "서울대공원 야구장",
+                        lat: 37.431045,
+                        lng: 127.007705,
+                    },
+                    {
+                        name: "광나루 한강공원 농구장",
+                        lat: 37.549135,
+                        lng: 127.120221,
+                    },
+                    {
+                        name: "잠실 한강공원 배구장",
+                        lat: 37.517751,
+                        lng: 127.086713,
+                    },
+                    {
+                        name: "뚝섬 한강공원 배드민턴장",
+                        lat: 37.527756,
+                        lng: 127.078457,
+                    },
+                    {
+                        name: "서남센터 파크골프장",
+                        lat: 37.574358,
+                        lng: 126.878341,
+                    },
+                ];
+
+                // 마커 생성 및 정보 창 추가
+                markers.forEach((markerInfo) => {
+                    const marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(markerInfo.lat, markerInfo.lng),
+                        map: map,
+                    });
+
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: markerInfo.name,
+                    });
+
+                    marker.addListener("mouseover", function () {
+                        infoWindow.open(map, marker);
+                    });
+
+                    marker.addListener("mouseout", function () {
+                        infoWindow.close();
+                    });
+                });
+            }
+                
+            </script>
+            
+
+        </main>
+        <footer>
+            <nav id="bottom_menu">
+                <ul>
+                    <li><a href="#" style="color: yellow;">개인정보처리방침</a></li>
+                    <li><a href="#" style="color: white;">이메일 무단수집거부</a></li>
+                    <li><a href="#" style="color: white;">뷰어프로그램다운로드</a></li>
+                    <li><a href="index.html" style="color: white;">사이트맵</a></li>
+                </ul>
+            </nav>
+            
+            <div id="bot">
+                <p style="font-size: 10px;">서울특별시청 04524 서울특별시 중구 세종대로 110 문의: 02) 120 (휴일, 야간) 장애신고: 02-2126-4647 (평일)</p> 
+                <p style="font-size: 9px;">© Seoul Metropolitan Government all rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsxvoQj6GO66T7r5NzaPr0rptM13TDfzE&callback=myMap"></script>
+
+</body>
+</html>

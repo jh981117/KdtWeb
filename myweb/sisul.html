@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <title>서울특별시 공공 체육시설</title>
+</head>
+<body style="background-color: white;">
+    <div id="wrap">
+        <header>
+            <div id="login">
+                <a href="#" id="login-link">로그인</a>
+                <a href="index.html"><img src="img/free-icon-home-page-4225539.png" alt="home"></a>
+            </div>
+            <div class="clear"></div>
+
+            <div id="logo">
+                <a href="index.html"><img src="img/서울.jpg" alt="seoul" width="265" height="200"></a>
+            </div>
+
+            <h1>서울특별시 생활체육시설 공공서비스</h1>
+
+            <nav id="top_menu">
+                <ul>
+                    <li><a href="https://yeyak.seoul.go.kr/web/search/selectPageListDetailSearchImg.do?code=T000&dCode=T014">교육/강좌</a></li>
+                    <li><a href="sisul.html" style="color: limegreen;">시설검색/예약</a></li>
+                    <li><a href="jido.html">시설위치</a></li>
+                    <li><a href="sahang.html">공지사항</a></li>
+                    <li><a href="jau.html">자유게시판</a></li>
+                </ul>
+            </nav>
+            <div class="clear"></div>
+
+            
+        </header>
+        <main>
+            <div id="login-popup" class="popup">
+                <div id="login-page">
+                    <h2>로그인 화면</h2>
+                    <form id="login-form">
+                        <input type="text" id="username" placeholder="사용자명">
+                        <input type="password" id="password" placeholder="비밀번호">
+                        <button type="button" id="login-button">로그인</button>
+                    </form>
+                    <a href="#" id="signup-link">회원가입</a>
+                    <button type="button" id="close-popup">닫기</button>
+                </div>
+            </div>
+            <div id="signup-popup" class="popup">
+                <div id="signup-page">
+                    <h2>회원가입</h2>
+                    <form id="signup-form">
+                        <input type="text" id="new-username" placeholder="새 사용자명">
+                        <input type="password" id="new-password" placeholder="새 비밀번호">
+                        <input type="password" id="confirm-password" placeholder="비밀번호 확인"><br>
+                        <button type="button" id="signup-button">가입하기</button>
+                    </form>
+                    <button type="button" id="close-signup-popup">닫기</button>
+                </div>
+            </div>
+
+        <h3>시설검색/예약 (시설을 먼저 검색한 후에 장소를 검색해주세요)</h3>
+        <form>
+            <h3>step 1</h3>
+            <input type="text" name="facility" id="facility" class="search-input" placeholder="시설을 입력하세요">
+            <button id="btn_loadFacility" type="button" class="search button">시설 정보 가져오기</button> <br> <br>
+            <h3>step 2</h3>
+            <input type="text" name="location" id="location" class="search-input" placeholder="장소를 입력하세요">
+            <button id="btn_loadLocation" type="button" class="search button">장소 정보 가져오기</button>
+            <button id="btn_remove" type="button" class="search button">지우기</button>
+        </form>
+        <br><br>
+        <div class="table-responsive">
+            <table id="demoJSON" class="table table-striped table-bordered"></table>
+        </div>
+    
+        <script>
+        
+        var api_key = "5a446c634f6a683933374876564176";
+        var facilityData;
+
+        $(document).ready(function(){
+            $("#btn_loadFacility").click(function(){
+                var facility = document.getElementById("facility").value.trim();
+
+                if (facility === "") {
+                    alert("시설을 입력하세요.");
+                    return;
+                }
+
+                var url = `http://openAPI.seoul.go.kr:8088/${api_key}/json/ListPublicReservationSport/1/617/${facility}`;
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    success: function(data, status){
+                        if (status === "success") {
+                            facilityData = data;
+                            parseJSON(facilityData);
+                        }
+                    }
+                });
+            });
+
+            $("#btn_loadLocation").click(function(){
+                var location = document.getElementById("location").value.trim();
+
+                if (location === "") {
+                    alert("장소를 입력하세요.");
+                    return;
+                }
+
+                if (!facilityData) {
+                    alert("먼저 시설 정보를 가져와야 합니다.");
+                    return;
+                }
+
+                var filteredData = filterByLocation(facilityData, location);
+                parseJSON(filteredData);
+            });
+
+            $("#btn_remove").click(function(){
+                $("#demoJSON").empty();
+            });
+        });
+
+        function parseJSON(jsonObj){
+            const table = [];
+            table.push("<tr><th>시설이름</th><th>장소</th><th>접수기간</th><th>결제방법</th><th>예약상태</th><th>전화번호</th><th>예약 바로가기</th></tr>")
+            for(row of jsonObj.ListPublicReservationSport.row){
+                const reservationLink = `<a href="${row.SVCURL}" target="_blank">예약하기</a>`;
+                const startDate = formatDate(row.RCPTBGNDT);
+                const endDate = formatDate(row.RCPTENDDT);
+                const receptionPeriod = `${startDate} ~ ${endDate}`;
+                table.push(`
+                <tr>
+                    <td>${row.MINCLASSNM}</td>
+                    <td>${row.SVCNM}</td>
+                    <td>${receptionPeriod}</td>
+                    <td>${row.PAYATNM}</td>
+                    <td>${row.SVCSTATNM}</td>
+                    <td>${row.TELNO}</td>
+                    <td>${reservationLink}</td>
+                </tr>
+                `)
+            }
+            $("#demoJSON").html(table.join('\n'));
+        }
+
+        function filterByLocation(data, location) { // data는 시설 데이터, location은 사용자가 입력한 장소명
+            const filteredData = { ListPublicReservationSport: { row: [] } };
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+            
+            for (const row of data.ListPublicReservationSport.row) {
+                if (row.SVCNM.includes(location)) {
+                    filteredData.ListPublicReservationSport.row.push(row);
+                }
+            }
+
+            return filteredData;
+        }
+
+        function formatDate(dateStr) {  // 날짜 문자열을 받아 날짜 형식으로 변환하여 반환
+            const date = new Date(dateStr);
+            return date.toLocaleDateString();
+        }
+        </script>
+          
+        </main>
+        <footer>
+            <nav id="bottom_menu">
+                <ul>
+                    <li><a href="#" style="color: yellow;">개인정보처리방침</a></li>
+                    <li><a href="#" style="color: white;">이메일 무단수집거부</a></li>
+                    <li><a href="#" style="color: white;">뷰어프로그램다운로드</a></li>
+                    <li><a href="index.html" style="color: white;">사이트맵</a></li>
+                </ul>
+            </nav>
+            
+            <div id="bot">
+                <p style="font-size: 10px;">서울특별시청 04524 서울특별시 중구 세종대로 110 문의: 02) 120 (휴일, 야간) 장애신고: 02-2126-4647 (평일)</p>
+                <p style="font-size: 9px;">© Seoul Metropolitan Government all rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

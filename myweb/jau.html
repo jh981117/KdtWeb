@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
+    <title>자유게시판 | 서울특별시 공공 체육시설 </title>
+</head>
+<body style="background-color: white;">
+    <div id="wrap">
+        <header>
+            <div id="login">
+                <a href="#" id="login-link">로그인</a>
+                <a href="index.html"><img src="img/free-icon-home-page-4225539.png" alt="home"></a>
+            </div>
+            <div class="clear"></div>
+
+            <div id="logo">
+                <a href="index.html"><img src="img/서울.jpg" alt="seoul" width="265" height="200"></a>
+            </div>
+
+            <h1>서울특별시 생활체육시설 공공서비스</h1>
+
+            <nav id="top_menu">
+                <ul>
+                    <li><a href="https://yeyak.seoul.go.kr/web/search/selectPageListDetailSearchImg.do?code=T000&dCode=T014">교육/강좌</a></li>
+                    <li><a href="sisul.html">시설검색/예약</a></li>
+                    <li><a href="jido.html">시설위치</a></li>
+                    <li><a href="sahang.html">공지사항</a></li>
+                    <li><a href="jau.html" style="color: limegreen;">자유게시판</a></li>
+                </ul>
+            </nav>
+            <div class="clear"></div>
+
+            
+        </header>
+        <main>
+            <!--로그인-->
+            <div id="login-popup" class="popup">
+                <div id="login-page">
+                    <h2>로그인 화면</h2>
+                    <form id="login-form">
+                        <input type="text" id="username" placeholder="사용자명">
+                        <input type="password" id="password" placeholder="비밀번호">
+                        <button type="button" id="login-button">로그인</button>
+                    </form>
+                    <a href="#" id="signup-link">회원가입</a>
+                    <button type="button" id="close-popup">닫기</button>
+                </div>
+            </div>
+
+            <!--회원가입-->
+            <div id="signup-popup" class="popup">
+                <div id="signup-page">
+                    <h2>회원가입</h2>
+                    <form id="signup-form">
+                        <input type="text" id="new-username" placeholder="새 사용자명">
+                        <input type="password" id="new-password" placeholder="새 비밀번호">
+                        <input type="password" id="confirm-password" placeholder="비밀번호 확인"><br>
+                        <button type="button" id="signup-button">가입하기</button>
+                    </form>
+                    <button type="button" id="close-signup-popup">닫기</button>
+                </div>
+            </div>
+
+            
+            <div class="container mt-3">
+                <h2>자유게시판</h2>
+                <ul class="nav nav-tabs" id="sportsTabs">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="golf-tab" data-bs-toggle="tab" href="#golf" style="color: black;">골프</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="basketball-tab" data-bs-toggle="tab" href="#basketball" style="color: black;">농구</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="volleyball-tab" data-bs-toggle="tab" href="#volleyball" style="color: black;">배구</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="badminton-tab" data-bs-toggle="tab" href="#badminton" style="color: black;">배드민턴</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="baseball-tab" data-bs-toggle="tab" href="#baseball" style="color: black;">야구</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="soccer-tab" data-bs-toggle="tab" href="#soccer" style="color: black;">축구</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tennis-tab" data-bs-toggle="tab" href="#tennis" style="color: black;">테니스</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="futsal-tab" data-bs-toggle="tab" href="#futsal" style="color: black;">풋살</a>
+                    </li>
+                </ul>
+        
+                <div class="tab-content" id="myTabsContent">
+                    <div class="container tab-pane fade show active" id="golf">
+                        <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>번호</th>
+                                  <th>제목</th>
+                                  <th>작성자</th>
+                                  <th>등록일</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td><a href="#">골프 같이 치실분 구합니다</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.31</td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td><a href="#">[추가모집] 강남구 골프 동호회 회원 모집</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.26</td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td><a href="#">갈비찜 레시피</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.25</td>
+                                </tr>
+                                <tr>
+                                  <td>4</td>
+                                  <td><a href="#">집에가고싶어요</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.23</td>
+                                </tr>
+                                <tr>
+                                  <td>5</td>
+                                  <td><a href="#">골프장 이용문의</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.20</td>
+                                </tr>
+                                <tr>
+                                  <td>6</td>
+                                 <td><a href="#">드라이버 어떤거 사야하나요</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.19</td>
+                                </tr>
+                                <tr>
+                                  <td>7</td>
+                                  <td><a href="#">홀인원</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.17</td>
+                                </tr>
+                                <tr>
+                                  <td>8</td>
+                                  <td><a href="#">123</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>9</td>
+                                  <td><a href="#">당근으로 골프채를 샀는데..</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>10</td>
+                                  <td><a href="#">골 </a> </td>
+                                  <td>성연철</td>
+                                  <td>2023.10.15</td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                            <div id="number"><a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">> <a href="#">≫</a><a href="#">글쓰기</a></div>
+
+                          </div>
+                    </div>
+                    <div class="container tab-pane fade" id="basketball">
+                        <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>번호</th>
+                                  <th>제목</th>
+                                  <th>작성자</th>
+                                  <th>등록일</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td><a href="#">한강 농구 코트 예약 같이하실분</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.31</td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td><a href="#">슬램덩크</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.26</td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td><a href="#">집에가고싶어요</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.25</td>
+                                </tr>
+                                <tr>
+                                  <td>4</td>
+                                  <td><a href="#">탕후루 레시피</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.23</td>
+                                </tr>
+                                <tr>
+                                  <td>5</td>
+                                  <td><a href="#">농구공 공동구매 하실분 구합니다</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.20</td>
+                                </tr>
+                                <tr>
+                                  <td>6</td>
+                                 <td><a href="#">상동 농구클럽에서 신규 가입자 모집합니다</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.19</td>
+                                </tr>
+                                <tr>
+                                  <td>7</td>
+                                  <td><a href="#">하승진</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.17</td>
+                                </tr>
+                                <tr>
+                                  <td>8</td>
+                                  <td><a href="#">대한민국 국가대표</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>9</td>
+                                  <td><a href="#">농구</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>10</td>
+                                  <td><a href="#">농구농구 </a> </td>
+                                  <td>성연철</td>
+                                  <td>2023.10.15</td>
+                                </tr>
+                              </tbody>
+                            </table>
+          
+                            <div id="number"><a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">> <a href="#">≫</a><a href="#">글쓰기</a></div>
+                          </div>
+                    </div>
+                    <div class="container tab-pane fade" id="volleyball">
+                        <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>번호</th>
+                                  <th>제목</th>
+                                  <th>작성자</th>
+                                  <th>등록일</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td><a href="#">동해 물과 백두산이</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.31</td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td><a href="#">마르고 닳도록</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.26</td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td><a href="#">하느님이 보우하사</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.25</td>
+                                </tr>
+                                <tr>
+                                  <td>4</td>
+                                  <td><a href="#">우리나라 만세</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.23</td>
+                                </tr>
+                                <tr>
+                                  <td>5</td>
+                                  <td><a href="#">남산 위에 저 소나무</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.20</td>
+                                </tr>
+                                <tr>
+                                  <td>6</td>
+                                 <td><a href="#">철갑을 두른 듯</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.19</td>
+                                </tr>
+                                <tr>
+                                  <td>7</td>
+                                  <td><a href="#">바람 서리 불변함은</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.17</td>
+                                </tr>
+                                <tr>
+                                  <td>8</td>
+                                  <td><a href="#">우리 기상일세</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>9</td>
+                                  <td><a href="#">가을 하늘 공활한데</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>10</td>
+                                  <td><a href="#">높고 구름 없이</a> </td>
+                                  <td>성연철</td>
+                                  <td>2023.10.15</td>
+                                </tr>
+                              </tbody>
+                            </table>
+          
+                            <div id="number"><a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">> <a href="#">≫</a><a href="#">글쓰기</a></div>
+                          </div>
+                    </div>
+                    <div class="container tab-pane fade" id="badminton">
+                        <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>번호</th>
+                                  <th>제목</th>
+                                  <th>작성자</th>
+                                  <th>등록일</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td><a href="#">밝은 달은 우리 가슴</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.31</td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td><a href="#">일편단심일세</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.26</td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td><a href="#">이 기상과 이 맘으로</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.25</td>
+                                </tr>
+                                <tr>
+                                  <td>4</td>
+                                  <td><a href="#">충성을 다하여</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.23</td>
+                                </tr>
+                                <tr>
+                                  <td>5</td>
+                                  <td><a href="#">괴로우나 즐거우나</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.20</td>
+                                </tr>
+                                <tr>
+                                  <td>6</td>
+                                 <td><a href="#">나라 사랑하세</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.19</td>
+                                </tr>
+                                <tr>
+                                  <td>7</td>
+                                  <td><a href="#">무궁화 삼천리</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.17</td>
+                                </tr>
+                                <tr>
+                                  <td>8</td>
+                                  <td><a href="#">화려 강산</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>9</td>
+                                  <td><a href="#">대한 사람 대한으로</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>10</td>
+                                  <td><a href="#">길이 보전하세</a> </td>
+                                  <td>성연철</td>
+                                  <td>2023.10.15</td>
+                                </tr>
+                              </tbody>
+                            </table>
+          
+                            <div id="number"><a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">> <a href="#">≫</a><a href="#">글쓰기</a></div>
+                          </div>
+                    </div>
+                    <div class="container tab-pane fade" id="baseball">
+                        <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>번호</th>
+                                  <th>제목</th>
+                                  <th>작성자</th>
+                                  <th>등록일</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td><a href="#">콜라 싫어 싫어 홍차 싫어 싫어</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.31</td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td><a href="#">새까만 커피 오노</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.26</td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td><a href="#">핫초코 싫어 싫어 사이다 싫어 싫어 새하얀 우유 오예</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.25</td>
+                                </tr>
+                                <tr>
+                                  <td>4</td>
+                                  <td><a href="#">맛좋고 색깔좋고 영양도 최고</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.23</td>
+                                </tr>
+                                <tr>
+                                  <td>5</td>
+                                  <td><a href="#">깔끔한 내 입맛엔 우유가 딱이야</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.20</td>
+                                </tr>
+                                <tr>
+                                  <td>6</td>
+                                 <td><a href="#">단백질 칼슘또한 비타민 가득</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.19</td>
+                                </tr>
+                                <tr>
+                                  <td>7</td>
+                                  <td><a href="#">건강한 내 입맛엔 우유가 딱이야</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.17</td>
+                                </tr>
+                                <tr>
+                                  <td>8</td>
+                                  <td><a href="#">우유 좋아 우유 좋아 우유 주세요 더주세요</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>9</td>
+                                  <td><a href="#">우유 좋아 우유가 좋아 세상에서 제일 좋아</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>10</td>
+                                  <td><a href="#">우유 없는 세상은 상상하기도 싫어 싫어</a> </td>
+                                  <td>성연철</td>
+                                  <td>2023.10.15</td>
+                                </tr>
+                              </tbody>
+                            </table>
+          
+                            <div id="number"><a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">> <a href="#">≫</a><a href="#">글쓰기</a></div>
+                          </div>
+                    </div>
+                    <div class="container tab-pane fade" id="soccer">
+                        <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>번호</th>
+                                  <th>제목</th>
+                                  <th>작성자</th>
+                                  <th>등록일</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td><a href="#">우유가 제일 좋아 우유만 줘</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.31</td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td><a href="#">Milk 또 Milk 영어로 밀크 오 우유</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.26</td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td><a href="#">공부하다 한잔 게임하다 한잔</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.25</td>
+                                </tr>
+                                <tr>
+                                  <td>4</td>
+                                  <td><a href="#">항상 내 곁엔 오 우유</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.23</td>
+                                </tr>
+                                <tr>
+                                  <td>5</td>
+                                  <td><a href="#">우유는 우유병에 먹어야 제맛</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.20</td>
+                                </tr>
+                                <tr>
+                                  <td>6</td>
+                                 <td><a href="#">신선한 우유만이 진짜 우유야</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.19</td>
+                                </tr>
+                                <tr>
+                                  <td>7</td>
+                                  <td><a href="#">우유먹고 튼튼해져 얼른자라서</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.17</td>
+                                </tr>
+                                <tr>
+                                  <td>8</td>
+                                  <td><a href="#">새나라 새일꾼이 되볼랍니다</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>9</td>
+                                  <td><a href="#">우유 좋아 우유 좋아 우유 주세요 더주세요</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>10</td>
+                                  <td><a href="#">우유 좋아 우유가 좋아 세상에서 제일 좋아 </a> </td>
+                                  <td>성연철</td>
+                                  <td>2023.10.15</td>
+                                </tr>
+                              </tbody>
+                            </table>
+          
+                            <div id="number"><a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">> <a href="#">≫</a><a href="#">글쓰기</a></div>
+                          </div>
+                    </div>
+                    <div class="container tab-pane fade" id="tennis">
+                        <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>번호</th>
+                                  <th>제목</th>
+                                  <th>작성자</th>
+                                  <th>등록일</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td><a href="#">One & Two & Three & Four &</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.31</td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td><a href="#">One & Two & Three & Four &</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.26</td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td><a href="#">1! 초라도 안 보이면</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.25</td>
+                                </tr>
+                                <tr>
+                                  <td>4</td>
+                                  <td><a href="#">2! 이렇게 초조한데</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.23</td>
+                                </tr>
+                                <tr>
+                                  <td>5</td>
+                                  <td><a href="#">3! 삼초는 어떻게 기다려</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.20</td>
+                                </tr>
+                                <tr>
+                                  <td>6</td>
+                                 <td><a href="#">(이야 이야 이야 이야)</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.19</td>
+                                </tr>
+                                <tr>
+                                  <td>7</td>
+                                  <td><a href="#">4! 사랑해 널 사랑해</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.17</td>
+                                </tr>
+                                <tr>
+                                  <td>8</td>
+                                  <td><a href="#">5! 오늘은 말할 거야</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>9</td>
+                                  <td><a href="#">6! 육십억 지구에서 널 만난 건[6]</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>                              
+                                <tr>
+                                  <td>10</td>
+                                  <td><a href="#">7! 럭키야</a> </td>
+                                  <td>성연철</td>
+                                  <td>2023.10.15</td>
+                                </tr>
+                              </tbody>
+                            </table>
+          
+                            <div id="number"><a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">> <a href="#">≫</a><a href="#">글쓰기</a></div>
+                          </div>
+                    </div>
+                    <div class="container tab-pane fade" id="futsal">
+                        <div class="table-responsive">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>번호</th>
+                                  <th>제목</th>
+                                  <th>작성자</th>
+                                  <th>등록일</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td><a href="#">사랑해 요기조기 한눈팔지 말고 나를 봐</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.31</td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td><a href="#">좋아해 나를 향해 웃는 미소 매일매일 보여줘</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.26</td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td><a href="#">8! 팔딱팔딱 뛰는 가슴</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.25</td>
+                                </tr>
+                                <tr>
+                                  <td>4</td>
+                                  <td><a href="#">9! 구해줘 오 내 마음</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.23</td>
+                                </tr>
+                                <tr>
+                                  <td>5</td>
+                                  <td><a href="#">10! 십년이 가도 너를 사랑해</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.20</td>
+                                </tr>
+                                <tr>
+                                  <td>6</td>
+                                 <td><a href="#">언제나 이 맘 변치 않을게</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.19</td>
+                                </tr>
+                                <tr>
+                                  <td>7</td>
+                                  <td><a href="#">5678</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.17</td>
+                                </tr>
+                                <tr>
+                                  <td>8</td>
+                                  <td><a href="#">3455</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>9</td>
+                                  <td><a href="#">1234</a></td>
+                                  <td>성연철</td>
+                                  <td>2023.10.16</td>
+                                </tr>
+                                <tr>
+                                  <td>10</td>
+                                  <td><a href="#">(축구장, 배드민턴장, 족구장) 예약 안내 </a> </td>
+                                  <td>성연철</td>
+                                  <td>2023.10.15</td>
+                                </tr>
+                              </tbody>
+                            </table>
+          
+                            <div id="number"><a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">> <a href="#">≫</a><a href="#">글쓰기</a></div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </main>
+
+        <footer>
+            <nav id="bottom_menu">
+                <ul>
+                    <li><a href="#" style="color: yellow;">개인정보처리방침</a></li>
+                    <li><a href="#" style="color: white;">이메일 무단수집거부</a></li>
+                    <li><a href="#" style="color: white;">뷰어프로그램다운로드</a></li>
+                    <li><a href="index.html" style="color: white;">사이트맵</a></li>
+                </ul>
+            </nav>
+            
+            <div id="bot">
+              <p style="font-size: 10px;">서울특별시청 04524 서울특별시 중구 세종대로 110 문의: 02) 120 (휴일, 야간) 장애신고: 02-2126-4647 (평일)</p> 
+              <p style="font-size: 9px;">© Seoul Metropolitan Government all rights reserved.</p>
+          </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

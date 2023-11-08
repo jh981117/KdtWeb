@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <title>서울특별시 공공 체육시설</title>
+</head>
+<body style="background-color: white;">
+    <div id="wrap">
+        <header>
+            <div id="login">
+                <a href="#" id="login-link">로그인</a>
+                <a href="index.html"><img src="img/free-icon-home-page-4225539.png" alt="home"></a>
+            </div>
+            <div class="clear"></div>
+
+            <div id="logo">
+                <a href="index.html"><img src="img/서울.jpg" alt="seoul" width="265" height="200"></a>
+            </div>
+
+            <h1>서울특별시 생활체육시설 공공서비스</h1>
+
+            <nav id="top_menu">
+                <ul>
+                    <li><a href="https://yeyak.seoul.go.kr/web/search/selectPageListDetailSearchImg.do?code=T000&dCode=T014">교육/강좌</a></li>
+                    <li><a href="sisul.html">시설검색/예약</a></li>
+                    <li><a href="jido.html">시설위치</a></li>
+                    <li><a href="sahang.html">공지사항</a></li>
+                    <li><a href="jau.html">자유게시판</a></li>
+                </ul>
+            </nav>
+            <div class="clear"></div>
+
+            
+        </header>
+        <main>
+            <!--로그인-->
+            <div id="login-popup" class="popup">
+                <div id="login-page">
+                    <h2>로그인 화면</h2>
+                    <form id="login-form">
+                        <input type="text" id="username" placeholder="사용자명">
+                        <input type="password" id="password" placeholder="비밀번호">
+                        <button type="button" id="login-button">로그인</button>
+                    </form>
+                    <a href="#" id="signup-link">회원가입</a>
+                    <button type="button" id="close-popup">닫기</button>
+                </div>
+            </div>
+
+            <!--회원가입-->
+            <div id="signup-popup" class="popup">
+                <div id="signup-page">
+                    <h2>회원가입</h2>
+                    <form id="signup-form">
+                        <input type="text" id="new-username" placeholder="새 사용자명">
+                        <input type="password" id="new-password" placeholder="새 비밀번호">
+                        <input type="password" id="confirm-password" placeholder="비밀번호 확인"><br>
+                        <button type="button" id="signup-button">가입하기</button>
+                    </form>
+                    <button type="button" id="close-signup-popup">닫기</button>
+                </div>
+            </div>
+
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+	
+                <div id="demo" class="carousel slide" data-ride="carousel">
+                    <!-- 이미지 슬라이드 -->
+                    <!-- 슬라이드쇼 내 이미지 가운데 정렬 -->
+                    <div class="carousel-inner text-center">
+                        <div class="carousel-item active">
+                            <a href="#"><img src="img/생활체육리그.png" alt="리그" width="500" height="700"></a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#"><img src="img/가족스포츠강습.png" alt="스포츠 강습" width="500" height="700"></a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="#"><img src="img/한강트레킹.png" alt="한강 트레킹" width="500" height="700"></a>
+                        </div>
+                    </div>
+                    
+                    <!-- 슬라이드쇼 컨트롤 (이전, 다음) -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+
+                <script>
+                    // 슬라이드쇼 초기화
+                    $(document).ready(function(){
+                        $('.carousel').carousel();
+                    });
+                </script>
+            
+
+        </main>
+        <footer>
+            <nav id="bottom_menu">
+                <ul>
+                    <li><a href="#" style="color: yellow;">개인정보처리방침</a></li>
+                    <li><a href="#" style="color: white;">이메일 무단수집거부</a></li>
+                    <li><a href="#" style="color: white;">뷰어프로그램다운로드</a></li>
+                    <li><a href="index.html" style="color: white;">사이트맵</a></li>
+                </ul>
+            </nav>
+            
+            <div id="bot">
+                <p style="font-size: 10px;">서울특별시청 04524 서울특별시 중구 세종대로 110 문의: 02) 120 (휴일, 야간) 장애신고: 02-2126-4647 (평일)</p> 
+                <p style="font-size: 9px;">© Seoul Metropolitan Government all rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

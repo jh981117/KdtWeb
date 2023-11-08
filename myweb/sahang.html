@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <title>공지사항 | 서울특별시 공공 체육시설</title>
+</head>
+<body style="background-color: white;">
+    <div id="wrap">
+        <header>
+            <div id="login">
+                <a href="#" id="login-link">로그인</a>
+                <a href="index.html"><img src="img/free-icon-home-page-4225539.png" alt="home"></a>
+            </div>
+            <div class="clear"></div>
+
+            <div id="logo">
+                <a href="index.html"><img src="img/서울.jpg" alt="seoul" width="265" height="200"></a>
+            </div>
+
+            <h1>서울특별시 생활체육시설 공공서비스</h1>
+
+            <nav id="top_menu">
+                <ul>
+                    <li><a href="https://yeyak.seoul.go.kr/web/search/selectPageListDetailSearchImg.do?code=T000&dCode=T014">교육/강좌</a></li>
+                    <li><a href="sisul.html">시설검색/예약</a></li>
+                    <li><a href="jido.html">시설위치</a></li>
+                    <li><a href="sahang.html" style="color: limegreen;">공지사항</a></li>
+                    <li><a href="jau.html">자유게시판</a></li>
+                </ul>
+            </nav>
+            <div class="clear"></div>
+
+            
+        </header>
+        <main>
+            <!--로그인-->
+            <div id="login-popup" class="popup">
+                <div id="login-page">
+                    <h2>로그인 화면</h2>
+                    <form id="login-form">
+                        <input type="text" id="username" placeholder="사용자명">
+                        <input type="password" id="password" placeholder="비밀번호">
+                        <button type="button" id="login-button">로그인</button>
+                    </form>
+                    <a href="#" id="signup-link">회원가입</a>
+                    <button type="button" id="close-popup">닫기</button>
+                </div>
+            </div>
+
+            <!--회원가입-->
+            <div id="signup-popup" class="popup">
+                <div id="signup-page">
+                    <h2>회원가입</h2>
+                    <form id="signup-form">
+                        <input type="text" id="new-username" placeholder="새 사용자명">
+                        <input type="password" id="new-password" placeholder="새 비밀번호">
+                        <input type="password" id="confirm-password" placeholder="비밀번호 확인"><br>
+                        <button type="button" id="signup-button">가입하기</button>
+                    </form>
+                    <button type="button" id="close-signup-popup">닫기</button>
+                </div>
+            </div>
+
+           
+            <div class="container mt-3">
+                <h2>공지사항</h2>
+               
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>등록일</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>500</td>
+                        <td><a href="#">한강 테니스 코트 예약</a></td>
+                        <td>성연철</td>
+                        <td>2023.10.31</td>
+                      </tr>
+                      <tr>
+                        <td>499</td>
+                        <td><a href="#">[추가모집] 도봉문화재단 우이천 예술캠프 참여자 모집</a></td>
+                        <td>성연철</td>
+                        <td>2023.10.26</td>
+                      </tr>
+                      <tr>
+                        <td>498</td>
+                        <td><a href="#">서초구 12월 공공체육시설(방배,양재축구장, 우면구장) 예약 안내</a></td>
+                        <td>성연철</td>
+                        <td>2023.10.25</td>
+                      </tr>
+                      <tr>
+                        <td>497</td>
+                        <td><a href="#">2022년 11월 한강공원 내 야구장(난지2) 주말 및 공휴일 2차추첨 결과 안내</a></td>
+                        <td>성연철</td>
+                        <td>2023.10.23</td>
+                      </tr>
+                      <tr>
+                        <td>496</td>
+                        <td><a href="#">고척스카이돔 실외체육시설 11월 예약 접수 안내</a></td>
+                        <td>성연철</td>
+                        <td>2023.10.20</td>
+                      </tr>
+                      <tr>
+                        <td>495</td>
+                       <td><a href="#">[도봉문화재단] 우이천 예술캠프 참여자 모집</a></td>
+                        <td>성연철</td>
+                        <td>2023.10.19</td>
+                      </tr>
+                      <tr>
+                        <td>494</td>
+                        <td><a href="#">2023년 11월 한강공원 내 야구장(광나루, 난지2) 주말 및 공휴일 추첨 결과 안내</a></td>
+                        <td>성연철</td>
+                        <td>2023.10.17</td>
+                      </tr>
+                      <tr>
+                        <td>493</td>
+                        <td><a href="#">장충체육관 부속시설(보조체육관, 다목적실 1,2) 2023년 11~12월 예약 접수 안내</a></td>
+                        <td>성연철</td>
+                        <td>2023.10.16</td>
+                      </tr>
+                      <tr>
+                        <td>492</td>
+                        <td><a href="#">2023년 10월 한강공원 내 야구장(광나루, 난지2) 주말 및 공휴일 취소분 재추첨 결과 안내</a></td>
+                        <td>성연철</td>
+                        <td>2023.10.16</td>
+                      </tr>
+                      <tr>
+                        <td>491</td>
+                        <td><a href="#">서초구 11월 반포종합운동장(축구장, 배드민턴장, 족구장) 예약 안내 </a> </td>
+                        <td>성연철</td>
+                        <td>2023.10.15</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div id="number"><a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">> <a href="#">≫</a></a></div>
+                </div>
+              </div>
+
+
+        </main>
+        <footer>
+            <nav id="bottom_menu">
+                <ul>
+                    <li><a href="#" style="color: yellow;">개인정보처리방침</a></li>
+                    <li><a href="#" style="color: white;">이메일 무단수집거부</a></li>
+                    <li><a href="#" style="color: white;">뷰어프로그램다운로드</a></li>
+                    <li><a href="index.html" style="color: white;">사이트맵</a></li>
+                </ul>
+            </nav>
+            
+            <div id="bot">
+              <p style="font-size: 10px;">서울특별시청 04524 서울특별시 중구 세종대로 110 문의: 02) 120 (휴일, 야간) 장애신고: 02-2126-4647 (평일)</p> 
+              <p style="font-size: 9px;">© Seoul Metropolitan Government all rights reserved.</p>
+          </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
