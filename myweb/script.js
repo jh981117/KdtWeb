@@ -1,3 +1,7 @@
+var req_url ="https://maps.googleapis.com/maps/api/js";
+
+
+
 // 팝업 열기 함수
 function openPopup(popupId) {
     document.getElementById(popupId).style.display = 'block';
